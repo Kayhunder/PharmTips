@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pharmmed – Clinical Pharmacy & Medical Education</title>
+<meta name="description" content="Evidence-based clinical pharmacy and medical education for healthcare professionals.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0D1B2A;--teal:#0A7C6E;--teal2:#12A68F;--gold:#C8963E;--cream:#F8F4EE;--light:#E8E2D9;--mid:#4A5568;--white:#FFFFFF;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--navy);overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+.page-hidden{display:none;}
+
+/* NAV */
+.topbar{background:var(--navy);color:#7a9ab0;font-size:.72rem;text-align:center;padding:7px 20px;letter-spacing:.04em;}
+.topbar strong{color:var(--gold);}
+nav{background:var(--white);border-bottom:1px solid var(--light);position:sticky;top:0;z-index:200;}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 24px;height:66px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:900;letter-spacing:-.02em;cursor:pointer;}
+.logo span{color:var(--teal);}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);transition:color .15s;cursor:pointer;}
+.nav-links a:hover,.nav-links a.active{color:var(--teal);}
+.nav-cta{background:var(--teal)!important;color:var(--white)!important;padding:8px 18px;border-radius:5px;}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);margin:5px 0;}
+.mobile-menu{display:none;background:var(--white);border-top:1px solid var(--light);padding:16px 24px 20px;}
+.mobile-menu a{display:block;padding:10px 0;font-size:.82rem;font-weight:600;text-transform:uppercase;color:var(--mid);border-bottom:1px solid var(--light);cursor:pointer;}
+.mobile-menu.open{display:block;}
+
+/* HERO */
+.hero{background:var(--navy);padding:88px 24px 72px;text-align:center;position:relative;overflow:hidden;}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(10,124,110,.22) 0%,transparent 70%);pointer-events:none;}
+.hero-badge{display:inline-block;border:1px solid rgba(10,124,110,.5);background:rgba(10,124,110,.2);color:#7FD9C9;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;padding:5px 16px;border-radius:100px;margin-bottom:26px;position:relative;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5.5vw,4rem);font-weight:900;color:var(--white);line-height:1.12;max-width:780px;margin:0 auto 16px;position:relative;}
+.hero h1 em{font-style:normal;color:var(--gold);}
+.hero-sub{color:#8fa8be;font-size:1rem;max-width:540px;margin:0 auto 36px;line-height:1.75;position:relative;}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;}
+.btn-primary{background:var(--teal);color:var(--white);padding:13px 30px;border-radius:5px;font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;transition:background .15s,transform .15s;display:inline-block;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;}
+.btn-primary:hover{background:var(--teal2);transform:translateY(-2px);}
+.btn-ghost{border:1px solid rgba(255,255,255,.22);color:var(--white);padding:13px 30px;border-radius:5px;font-size:.85rem;transition:border-color .15s,transform .15s;display:inline-block;cursor:pointer;}
+.btn-ghost:hover{border-color:var(--teal2);transform:translateY(-2px);}
+.hero-stats{display:flex;justify-content:center;gap:48px;margin-top:56px;position:relative;flex-wrap:wrap;}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--white);}
+.stat-num b{color:var(--gold);}
+.stat-label{font-size:.72rem;color:#4a6070;letter-spacing:.1em;text-transform:uppercase;margin-top:3px;}
+
+/* SECTIONS */
+.section{max-width:1140px;margin:0 auto;padding:80px 24px;}
+.eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;display:block;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;line-height:1.2;margin-bottom:12px;}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+.about-visual{position:relative;}
+.about-bg{background:linear-gradient(135deg,var(--teal),var(--navy));border-radius:14px;height:360px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.about-bg svg{opacity:.14;}
+.about-float{position:absolute;bottom:-18px;right:-18px;background:var(--gold);width:82px;height:82px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.2rem;box-shadow:0 8px 28px rgba(200,150,62,.35);}
+.about-text p{color:var(--mid);line-height:1.8;margin-bottom:14px;font-size:.95rem;}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+.pill{background:rgba(10,124,110,.1);color:var(--teal);font-size:.75rem;font-weight:600;padding:5px 13px;border-radius:100px;}
+
+/* FEATURES */
+.features-wrap{background:var(--navy);}
+.features-inner{max-width:1140px;margin:0 auto;padding:80px 24px;}
+.features-hdr{text-align:center;margin-bottom:48px;}
+.features-hdr .eyebrow{color:var(--gold);}
+.features-hdr .section-title{color:var(--white);}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.feat-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:32px 26px;transition:border-color .2s,transform .2s;}
+.feat-card:hover{border-color:var(--teal);transform:translateY(-4px);}
+.feat-icon{width:48px;height:48px;background:rgba(10,124,110,.18);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:16px;}
+.feat-card h3{font-family:'Playfair Display',serif;color:var(--white);font-size:1rem;margin-bottom:8px;}
+.feat-card p{color:#6e8ba0;font-size:.84rem;line-height:1.75;}
+
+/* BLOG */
+.blog-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px;flex-wrap:wrap;gap:14px;}
+.blog-view-all{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);cursor:pointer;}
+.blog-featured{display:grid;grid-template-columns:1fr 1fr;border-radius:14px;overflow:hidden;background:var(--white);box-shadow:0 2px 16px rgba(13,27,42,.07);margin-bottom:22px;transition:transform .2s,box-shadow .2s;cursor:pointer;}
+.blog-featured:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(13,27,42,.12);}
+.feat-thumb{height:100%;min-height:220px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative;}
+.feat-body{padding:32px;display:flex;flex-direction:column;justify-content:center;}
+.post-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.post-card{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(13,27,42,.06);transition:transform .2s,box-shadow .2s;cursor:pointer;}
+.post-card:hover{transform:translateY(-5px);box-shadow:0 10px 36px rgba(13,27,42,.12);}
+.post-thumb{height:170px;display:flex;align-items:center;justify-content:center;font-size:2.8rem;position:relative;}
+.cat-badge{position:absolute;top:12px;left:12px;background:rgba(0,0,0,.42);backdrop-filter:blur(4px);color:#fff;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:100px;}
+.post-body{padding:18px 20px 22px;}
+.post-meta{font-size:.7rem;color:#9aa8b8;letter-spacing:.06em;text-transform:uppercase;margin-bottom:7px;}
+.post-body h3{font-family:'Playfair Display',serif;font-size:1rem;line-height:1.4;margin-bottom:8px;color:var(--navy);transition:color .15s;}
+.post-card:hover h3,.blog-featured:hover h3{color:var(--teal);}
+.post-body p{font-size:.82rem;color:var(--mid);line-height:1.7;margin-bottom:13px;}
+.read-more{font-size:.75rem;font-weight:700;color:var(--teal);letter-spacing:.06em;text-transform:uppercase;}
+.read-more::after{content:' →';}
+
+/* TESTIMONIALS */
+.testi-wrap{background:var(--light);}
+.testi-inner{max-width:1140px;margin:0 auto;padding:80px 24px;}
+.testi-hdr{text-align:center;margin-bottom:44px;}
+.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.testi-card{background:var(--white);border-radius:12px;padding:28px;position:relative;box-shadow:0 2px 8px rgba(13,27,42,.05);}
+.testi-card::before{content:'"';font-family:'Playfair Display',serif;font-size:5rem;color:var(--teal);opacity:.12;position:absolute;top:8px;left:22px;line-height:1;}
+.stars{color:var(--gold);margin-bottom:10px;font-size:.9rem;}
+.testi-text{font-size:.88rem;line-height:1.8;color:var(--mid);margin-bottom:16px;position:relative;}
+.testi-author{font-weight:700;font-size:.83rem;color:var(--navy);}
+.testi-role{font-size:.73rem;color:var(--teal);margin-top:2px;}
+
+/* CUSTOM SECTIONS */
+.custom-section{padding:80px 24px;}
+.custom-section-inner{max-width:1140px;margin:0 auto;}
+.custom-section.dark{background:var(--navy);}
+.custom-section.dark .section-title{color:var(--white);}
+.custom-section.dark p{color:#6e8ba0;}
+.custom-section.teal-bg{background:linear-gradient(135deg,var(--teal),#0A4A42);}
+.custom-section.teal-bg .section-title,.custom-section.teal-bg p,.custom-section.teal-bg .eyebrow{color:var(--white);}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.two-col-text p{line-height:1.8;margin-bottom:14px;font-size:.95rem;}
+.info-card{background:var(--white);border-radius:12px;padding:28px;box-shadow:0 2px 10px rgba(13,27,42,.06);}
+.info-card h3{font-family:'Playfair Display',serif;font-size:1.05rem;margin-bottom:8px;color:var(--navy);}
+.info-card p{font-size:.85rem;color:var(--mid);line-height:1.7;}
+.info-card .card-icon{font-size:1.8rem;margin-bottom:12px;}
+.dark .info-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);}
+.dark .info-card h3{color:var(--white);}
+.dark .info-card p{color:#6e8ba0;}
+.callout-box{background:rgba(10,124,110,.1);border:1px solid rgba(10,124,110,.3);border-radius:12px;padding:28px 32px;}
+.callout-box h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--navy);margin-bottom:8px;}
+.callout-box p{color:var(--mid);font-size:.9rem;line-height:1.75;}
+.full-width-text p{color:var(--mid);line-height:1.85;font-size:.96rem;margin-bottom:16px;max-width:760px;}
+.resource-list{list-style:none;margin-top:16px;}
+.resource-list li{padding:12px 0;border-bottom:1px solid var(--light);font-size:.9rem;color:var(--mid);display:flex;gap:12px;align-items:flex-start;}
+.resource-list li:last-child{border-bottom:none;}
+.resource-list li span{font-size:1.2rem;flex-shrink:0;}
+.stat-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.stat-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:24px;text-align:center;}
+.stat-card-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--white);margin-bottom:4px;}
+.stat-card-num b{color:var(--gold);}
+.stat-card-label{font-size:.75rem;color:#6e8ba0;letter-spacing:.1em;text-transform:uppercase;}
+
+/* SUBSCRIBE */
+.subscribe-wrap{padding:0 24px 80px;}
+.subscribe-box{max-width:1140px;margin:0 auto;background:var(--navy);border-radius:18px;padding:56px 48px;text-align:center;position:relative;overflow:hidden;}
+.subscribe-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% -10%,rgba(10,124,110,.2) 0%,transparent 70%);pointer-events:none;}
+.subscribe-box .eyebrow{color:var(--gold);position:relative;}
+.subscribe-box .section-title{color:var(--white);position:relative;max-width:480px;margin:0 auto 12px;}
+.subscribe-box>p{color:#6e8ba0;font-size:.9rem;margin-bottom:28px;position:relative;}
+.sub-form{display:flex;gap:10px;max-width:460px;margin:0 auto;position:relative;}
+.sub-form input{flex:1;padding:13px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07);color:var(--white);font-family:'DM Sans',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s;}
+.sub-form input::placeholder{color:#3a5060;}
+.sub-form input:focus{border-color:var(--teal);}
+.sub-form button{background:var(--teal);color:var(--white);border:none;padding:13px 22px;border-radius:6px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.85rem;cursor:pointer;white-space:nowrap;}
+.sub-success{display:none;background:rgba(10,124,110,.2);border:1px solid rgba(10,124,110,.4);color:#7FD9C9;padding:12px 24px;border-radius:8px;font-size:.88rem;font-weight:600;position:relative;}
+
+/* FOOTER */
+footer{background:#060E17;padding:52px 24px 26px;}
+.foot-inner{max-width:1140px;margin:0 auto;}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:24px;}
+.foot-brand p{color:#3a5060;font-size:.82rem;line-height:1.75;margin-top:12px;}
+.foot-col h4{color:var(--white);font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px;}
+.foot-col ul{list-style:none;}
+.foot-col li{margin-bottom:8px;}
+.foot-col a{color:#3a5060;font-size:.82rem;transition:color .15s;cursor:pointer;}
+.foot-col a:hover{color:var(--teal);}
+.foot-bottom{display:flex;justify-content:space-between;color:#1e3040;font-size:.73rem;flex-wrap:wrap;gap:8px;}
+
+/* POST PAGE */
+.post-page{max-width:760px;margin:0 auto;padding:48px 24px 80px;}
+.post-hero{padding:64px 24px;text-align:center;position:relative;overflow:hidden;}
+.post-hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:900;color:var(--white);line-height:1.15;max-width:700px;margin:0 auto 14px;position:relative;}
+.post-hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.48);}
+.post-content h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--navy);margin:2rem 0 .8rem;}
+.post-content h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--navy);margin:1.5rem 0 .6rem;}
+.post-content p{color:var(--mid);line-height:1.85;margin-bottom:1.1rem;font-size:.97rem;}
+.post-content ul,.post-content ol{padding-left:1.5rem;margin-bottom:1.1rem;color:var(--mid);line-height:1.8;font-size:.97rem;}
+.post-content li{margin-bottom:.4rem;}
+.post-content blockquote{border-left:4px solid var(--teal);padding:12px 20px;margin:1.5rem 0;background:rgba(10,124,110,.06);border-radius:0 8px 8px 0;font-style:italic;color:var(--navy);font-family:'Playfair Display',serif;font-size:1.05rem;}
+.post-content strong{font-weight:700;color:var(--navy);}
+.post-content table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.88rem;}
+.post-content th{background:var(--navy);color:var(--white);padding:10px 14px;text-align:left;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;}
+.post-content td{padding:9px 14px;border-bottom:1px solid var(--light);color:var(--mid);}
+.post-content tr:nth-child(even) td{background:rgba(248,244,238,.6);}
+.disclaimer-box{background:rgba(200,150,62,.1);border:1px solid rgba(200,150,62,.3);border-radius:10px;padding:14px 18px;margin-bottom:28px;font-size:.84rem;color:#7a5a1a;line-height:1.65;}
+.breadcrumb{font-size:.75rem;color:#9aa8b8;margin-bottom:28px;}
+.breadcrumb a{color:#9aa8b8;cursor:pointer;}
+.breadcrumb a:hover{color:var(--teal);}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--teal);font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-top:40px;cursor:pointer;}
+
+/* BLOG INDEX PAGE */
+.blog-page{max-width:1140px;margin:0 auto;padding:64px 24px 80px;}
+.category-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px;}
+.cat-filter{padding:6px 14px;border-radius:100px;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--light);color:var(--mid);cursor:pointer;transition:all .15s;background:var(--white);}
+.cat-filter:hover,.cat-filter.active{background:var(--teal);border-color:var(--teal);color:var(--white);}
+
+/* ABOUT PAGE */
+.about-page{max-width:760px;margin:0 auto;padding:64px 24px 80px;}
+.about-page section{margin-bottom:52px;}
+.about-page h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;margin-bottom:14px;color:var(--navy);}
+.about-page p{color:var(--mid);line-height:1.8;margin-bottom:12px;font-size:.95rem;}
+.contact-btn{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:var(--white);padding:13px 26px;border-radius:6px;font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;}
+
+/* ═══════════════════════════════════════
+   ADMIN SYSTEM
+═══════════════════════════════════════ */
+#admin-lock{display:none;position:fixed;inset:0;background:rgba(6,14,23,.93);backdrop-filter:blur(8px);z-index:9000;align-items:center;justify-content:center;}
+#admin-lock.show{display:flex;}
+.lock-box{background:#0D1B2A;border:1px solid rgba(10,124,110,.4);border-radius:16px;padding:40px;width:360px;text-align:center;}
+.lock-box h2{font-family:'Playfair Display',serif;color:#fff;font-size:1.5rem;margin-bottom:6px;}
+.lock-box p{color:#6e8ba0;font-size:.85rem;margin-bottom:24px;}
+.lock-input{width:100%;padding:12px 16px;border-radius:7px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.07);color:#fff;font-size:1rem;text-align:center;letter-spacing:.12em;outline:none;font-family:'DM Sans',sans-serif;margin-bottom:12px;}
+.lock-input:focus{border-color:var(--teal);}
+.lock-btn{width:100%;padding:12px;background:var(--teal);color:#fff;border:none;border-radius:7px;font-weight:700;font-size:.9rem;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.lock-btn:hover{background:var(--teal2);}
+.lock-error{color:#f87171;font-size:.8rem;margin-top:8px;display:none;}
+.lock-cancel{color:#4a6070;font-size:.8rem;margin-top:14px;cursor:pointer;display:block;}
+.lock-cancel:hover{color:#fff;}
+
+/* Admin bar */
+#admin-bar{display:none;position:fixed;bottom:0;left:0;right:0;background:#060E17;border-top:2px solid var(--teal);z-index:8000;padding:10px 20px;align-items:center;gap:10px;flex-wrap:wrap;}
+#admin-bar.show{display:flex;}
+.ab-label{color:var(--teal);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;}
+.ab-btn{padding:7px 13px;border-radius:6px;border:none;font-family:'DM Sans',sans-serif;font-size:.73rem;font-weight:700;cursor:pointer;letter-spacing:.05em;text-transform:uppercase;transition:all .15s;}
+.ab-teal{background:var(--teal);color:#fff;}.ab-teal:hover{background:var(--teal2);}
+.ab-gold{background:var(--gold);color:#0D1B2A;}
+.ab-ghost{background:transparent;color:#6e8ba0;border:1px solid #2a3a4a;}.ab-ghost:hover{color:#fff;border-color:#fff;}
+.ab-red{background:#7f1d1d;color:#fca5a5;}.ab-red:hover{background:#991b1b;}
+.ab-right{margin-left:auto;display:flex;align-items:center;gap:10px;}
+.ab-save-msg{color:#6ee7b7;font-size:.78rem;display:none;}
+
+/* Edit panel */
+#edit-panel{display:none;position:fixed;top:0;right:0;bottom:60px;width:400px;background:#0A1520;border-left:1px solid rgba(10,124,110,.3);z-index:7000;overflow-y:auto;flex-direction:column;}
+#edit-panel.show{display:flex;}
+.ep-header{padding:16px 18px;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0;}
+.ep-header h3{color:#fff;font-family:'Playfair Display',serif;font-size:1rem;margin-bottom:2px;}
+.ep-header p{color:#4a6070;font-size:.72rem;}
+.ep-tabs{display:flex;gap:4px;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0;flex-wrap:wrap;}
+.ep-tab{padding:5px 11px;border-radius:5px;border:none;font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:700;cursor:pointer;background:rgba(255,255,255,.05);color:#6e8ba0;transition:all .15s;}
+.ep-tab.active{background:var(--teal);color:#fff;}
+.ep-body{flex:1;overflow-y:auto;padding:14px;}
+.ep-tab-pane{display:none;}.ep-tab-pane.active{display:block;}
+.ep-section{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:9px;padding:14px;margin-bottom:12px;}
+.ep-section-title{color:var(--teal);font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;}
+.ep-field{margin-bottom:10px;}
+.ep-label{display:block;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#4a6070;margin-bottom:3px;}
+.ep-input{width:100%;padding:7px 10px;border-radius:5px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.05);color:#fff;font-family:'DM Sans',sans-serif;font-size:.8rem;outline:none;transition:border-color .15s;}
+.ep-input:focus{border-color:var(--teal);}
+textarea.ep-input{resize:vertical;min-height:60px;line-height:1.5;}
+.ep-hint{font-size:.65rem;color:#3a5060;margin-top:3px;}
+.ep-btn-sm{padding:5px 12px;border-radius:5px;border:none;font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:700;cursor:pointer;transition:all .15s;}
+.ep-btn-add{background:rgba(10,124,110,.2);color:var(--teal);border:1px dashed rgba(10,124,110,.4);}
+.ep-btn-add:hover{background:rgba(10,124,110,.35);}
+.ep-btn-del{background:rgba(220,38,38,.15);color:#f87171;border:none;padding:3px 8px;border-radius:4px;font-size:.68rem;cursor:pointer;}
+.ep-btn-del:hover{background:rgba(220,38,38,.3);}
+.ep-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:7px;padding:12px;margin-bottom:8px;}
+.ep-card-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.ep-card-title{color:#9aa8b8;font-size:.72rem;font-weight:700;}
+.ep-divider{border:none;border-top:1px solid rgba(255,255,255,.06);margin:14px 0;}
+.section-type-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px;}
+.section-type-btn{padding:8px 6px;border-radius:6px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:#6e8ba0;font-size:.68rem;font-weight:600;cursor:pointer;text-align:center;transition:all .15s;}
+.section-type-btn:hover{border-color:var(--teal);color:var(--teal);}
+
+/* Admin mode highlight */
+body.admin-mode [data-editable]:hover{outline:2px dashed rgba(10,124,110,.5);outline-offset:2px;cursor:text;}
+
+/* Responsive */
+@media(max-width:900px){.about-grid,.blog-featured,.two-col{grid-template-columns:1fr;}.feat-grid,.three-col{grid-template-columns:1fr 1fr;}.post-grid{grid-template-columns:1fr 1fr;}.testi-grid{grid-template-columns:1fr;}.foot-grid{grid-template-columns:1fr 1fr;}.nav-links{display:none;}.hamburger{display:block;}.stat-cards{grid-template-columns:1fr 1fr;}#edit-panel{width:100%;top:auto;height:65vh;border-left:none;border-top:1px solid rgba(10,124,110,.3);}}
+@media(max-width:600px){.feat-grid,.post-grid,.three-col,.stat-cards{grid-template-columns:1fr;}.hero-stats{gap:24px;}.sub-form{flex-direction:column;}.foot-grid{grid-template-columns:1fr;}.subscribe-box{padding:36px 22px;}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+.hero>*{animation:fadeUp .65s ease both;}
+.hero .hero-badge{animation-delay:.1s;}.hero h1{animation-delay:.2s;}.hero .hero-sub{animation-delay:.3s;}.hero .hero-btns{animation-delay:.4s;}.hero .hero-stats{animation-delay:.52s;}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ ADMIN LOCK ═══════════ -->
+<div id="admin-lock">
+  <div class="lock-box">
+    <div style="font-size:2rem;margin-bottom:12px;">🔐</div>
+    <h2>Admin Access</h2>
+    <p>Enter your password to edit the site</p>
+    <input class="lock-input" type="password" id="admin-pw" placeholder="••••••••" onkeydown="if(event.key==='Enter')checkPw()">
+    <button class="lock-btn" onclick="checkPw()">Unlock Editor</button>
+    <div class="lock-error" id="lock-error">Incorrect password. Try again.</div>
+    <span class="lock-cancel" onclick="closeLock()">Cancel</span>
+  </div>
+</div>
+
+<!-- ═══════════ ADMIN BAR ═══════════ -->
+<div id="admin-bar">
+  <span class="ab-label">✏️ Admin</span>
+  <button class="ab-btn ab-teal" onclick="togglePanel('content')">Edit Content</button>
+  <button class="ab-btn ab-teal" onclick="togglePanel('sections')">+ Add Section</button>
+  <button class="ab-btn ab-teal" onclick="togglePanel('posts')">Manage Posts</button>
+  <button class="ab-btn ab-gold" onclick="saveAndDownload()">⬇ Save & Download</button>
+  <div class="ab-right">
+    <span class="ab-save-msg" id="save-msg">✓ Downloaded! Upload to GitHub to publish.</span>
+    <button class="ab-btn ab-ghost" onclick="logoutAdmin()">Log Out</button>
+  </div>
+</div>
+
+<!-- ═══════════ EDIT PANEL ═══════════ -->
+<div id="edit-panel">
+  <div class="ep-header">
+    <h3>✏️ Site Editor</h3>
+    <p>Changes preview instantly · Download when done</p>
+  </div>
+  <div class="ep-tabs" id="ep-tabs">
+    <button class="ep-tab active" onclick="epTab('content',this)">Content</button>
+    <button class="ep-tab" onclick="epTab('sections',this)">Add Section</button>
+    <button class="ep-tab" onclick="epTab('posts',this)">Posts</button>
+    <button class="ep-tab" onclick="epTab('settings',this)">Settings</button>
+  </div>
+  <div class="ep-body">
+
+    <!-- CONTENT TAB -->
+    <div class="ep-tab-pane active" id="pane-content">
+      <div class="ep-section">
+        <div class="ep-section-title">Site Identity</div>
+        <div class="ep-field"><label class="ep-label">Site Name</label><input class="ep-input" id="f-name" oninput="lu()"></div>
+        <div class="ep-field"><label class="ep-label">Top Bar Message</label><input class="ep-input" id="f-topbar" oninput="lu()"></div>
+      </div>
+      <div class="ep-section">
+        <div class="ep-section-title">Hero Section</div>
+        <div class="ep-field"><label class="ep-label">Headline</label><textarea class="ep-input" id="f-h1" oninput="lu()"></textarea></div>
+        <div class="ep-field"><label class="ep-label">Subheading</label><textarea class="ep-input" id="f-sub" oninput="lu()"></textarea></div>
+        <div class="ep-field"><label class="ep-label">Stat 1</label><input class="ep-input" id="f-s1" oninput="lu()" placeholder="e.g. 8K+"></div>
+        <div class="ep-field"><label class="ep-label">Stat 2</label><input class="ep-input" id="f-s2" oninput="lu()" placeholder="e.g. 300+"></div>
+        <div class="ep-field"><label class="ep-label">Stat 3</label><input class="ep-input" id="f-s3" oninput="lu()" placeholder="e.g. 50K+"></div>
+      </div>
+      <div class="ep-section">
+        <div class="ep-section-title">About Section</div>
+        <div class="ep-field"><label class="ep-label">Heading</label><input class="ep-input" id="f-at" oninput="lu()"></div>
+        <div class="ep-field"><label class="ep-label">Paragraph 1</label><textarea class="ep-input" id="f-ap1" oninput="lu()"></textarea></div>
+        <div class="ep-field"><label class="ep-label">Paragraph 2</label><textarea class="ep-input" id="f-ap2" oninput="lu()"></textarea></div>
+        <div class="ep-field"><label class="ep-label">Topic Pills (comma separated)</label><input class="ep-input" id="f-pills" oninput="lu()"><div class="ep-hint">e.g. Drug Interactions, Board Prep, Therapeutics</div></div>
+      </div>
+      <div class="ep-section">
+        <div class="ep-section-title">Author / About Page</div>
+        <div class="ep-field"><label class="ep-label">Bio Paragraph 1</label><textarea class="ep-input" id="f-bio1" oninput="lu()"></textarea></div>
+        <div class="ep-field"><label class="ep-label">Bio Paragraph 2</label><textarea class="ep-input" id="f-bio2" oninput="lu()"></textarea></div>
+        <div class="ep-field"><label class="ep-label">Contact Email</label><input class="ep-input" id="f-email" oninput="lu()"></div>
+      </div>
+      <div class="ep-section">
+        <div class="ep-section-title">Footer</div>
+        <div class="ep-field"><label class="ep-label">Footer Tagline</label><textarea class="ep-input" id="f-ftag" oninput="lu()"></textarea></div>
+      </div>
+      <!-- Testimonials -->
+      <div class="ep-section">
+        <div class="ep-section-title">Testimonials <button class="ep-btn-sm ep-btn-add" onclick="addTesti()" style="float:right;margin-top:-2px;">+ Add</button></div>
+        <div id="testi-editor"></div>
+      </div>
+    </div>
+
+    <!-- SECTIONS TAB -->
+    <div class="ep-tab-pane" id="pane-sections">
+      <p style="color:#6e8ba0;font-size:.8rem;margin-bottom:14px;line-height:1.6;">Choose a section type to add to the homepage. Sections appear after the blog posts.</p>
+      <div class="section-type-grid">
+        <div class="section-type-btn" onclick="addSection('text-block')">📝<br>Text Block</div>
+        <div class="section-type-btn" onclick="addSection('two-col')">🔲<br>Two Column</div>
+        <div class="section-type-btn" onclick="addSection('cards')">🃏<br>3 Info Cards</div>
+        <div class="section-type-btn" onclick="addSection('callout')">💡<br>Callout Box</div>
+        <div class="section-type-btn" onclick="addSection('stats')">📊<br>Stat Strip</div>
+        <div class="section-type-btn" onclick="addSection('resources')">📋<br>Resource List</div>
+        <div class="section-type-btn" onclick="addSection('podcast')">🎙️<br>Podcast / Audio</div>
+        <div class="section-type-btn" onclick="addSection('cta')">📣<br>CTA Banner</div>
+      </div>
+      <hr class="ep-divider">
+      <div class="ep-section-title" style="color:var(--teal);">Manage Custom Sections</div>
+      <div id="custom-sections-list" style="margin-top:8px;"></div>
+    </div>
+
+    <!-- POSTS TAB -->
+    <div class="ep-tab-pane" id="pane-posts">
+      <button class="ep-btn-sm ep-btn-add" onclick="addPost()" style="width:100%;padding:10px;margin-bottom:12px;">+ Add New Post</button>
+      <div id="posts-editor"></div>
+    </div>
+
+    <!-- SETTINGS TAB -->
+    <div class="ep-tab-pane" id="pane-settings">
+      <div class="ep-section">
+        <div class="ep-section-title">Admin Password</div>
+        <div class="ep-field"><label class="ep-label">Current Password</label><input class="ep-input" type="password" id="f-oldpw" placeholder="Current password"></div>
+        <div class="ep-field"><label class="ep-label">New Password</label><input class="ep-input" type="password" id="f-newpw" placeholder="New password"></div>
+        <button class="ep-btn-sm ab-teal" onclick="changePw()" style="margin-top:4px;">Update Password</button>
+        <div id="pw-msg" style="font-size:.72rem;margin-top:6px;display:none;"></div>
+      </div>
+      <div class="ep-section">
+        <div class="ep-section-title">Features Toggle</div>
+        <div class="ep-field" style="display:flex;align-items:center;justify-content:space-between;">
+          <label class="ep-label" style="margin-bottom:0;">Show Testimonials</label>
+          <input type="checkbox" id="f-show-testi" onchange="lu()" checked style="width:16px;height:16px;cursor:pointer;">
+        </div>
+        <div class="ep-field" style="display:flex;align-items:center;justify-content:space-between;">
+          <label class="ep-label" style="margin-bottom:0;">Show Features Grid</label>
+          <input type="checkbox" id="f-show-feat" onchange="lu()" checked style="width:16px;height:16px;cursor:pointer;">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════ HOME PAGE ═══════════════════════ -->
+<div id="page-home">
+  <div class="topbar" id="topbar-el"><strong>New: Pharmacokinetics Deep Dive</strong> — Free for subscribers · Join 8,000+ pharmacy professionals</div>
+  <nav>
+    <div class="nav-inner">
+      <span class="logo" id="logo-el" onclick="showPage('home')">Pharm<span>med</span></span>
+      <ul class="nav-links">
+        <li><a onclick="showPage('home')" class="active">Home</a></li>
+        <li><a onclick="showPage('blog')">Blog</a></li>
+        <li><a onclick="showPage('about')">About</a></li>
+        <li><a href="#subscribe" class="nav-cta">Subscribe Free</a></li>
+      </ul>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+    <div class="mobile-menu" id="mob-menu">
+      <a onclick="showPage('home');toggleMenu()">Home</a>
+      <a onclick="showPage('blog');toggleMenu()">Blog</a>
+      <a onclick="showPage('about');toggleMenu()">About</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-grid"></div><div class="hero-glow"></div>
+    <div class="hero-badge">Clinical Pharmacy &amp; Medical Education</div>
+    <h1 id="hero-h1">Evidence-Based Insights for <em>Modern Clinicians</em></h1>
+    <p class="hero-sub" id="hero-sub">Pharmmed bridges the gap between pharmacology and patient care — practical, peer-reviewed content for pharmacy professionals, nurses, and prescribers.</p>
+    <div class="hero-btns">
+      <span class="btn-primary" onclick="showPage('blog')">Read the Blog</span>
+      <a href="#subscribe" class="btn-ghost">Subscribe Free →</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num" id="stat1">8<b>K+</b></div><div class="stat-label">Subscribers</div></div>
+      <div><div class="stat-num" id="stat2">300<b>+</b></div><div class="stat-label">Articles</div></div>
+      <div><div class="stat-num" id="stat3">50<b>K+</b></div><div class="stat-label">Monthly Readers</div></div>
+      <div><div class="stat-num">100<b>%</b></div><div class="stat-label">Free Content</div></div>
+    </div>
+  </section>
+
+  <div class="section">
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="about-bg"><svg width="210" height="210" viewBox="0 0 210 210" fill="none"><circle cx="105" cy="105" r="95" stroke="white" stroke-width="1.5"/><circle cx="105" cy="105" r="65" stroke="white" stroke-width="1.5"/><circle cx="105" cy="105" r="35" stroke="white" stroke-width="1.5"/><line x1="10" y1="105" x2="200" y2="105" stroke="white" stroke-width="1.5"/><line x1="105" y1="10" x2="105" y2="200" stroke="white" stroke-width="1.5"/></svg></div>
+        <div class="about-float">💊</div>
+      </div>
+      <div class="about-text">
+        <span class="eyebrow">About Pharmmed</span>
+        <h2 class="section-title" id="about-title">Real Clinical Knowledge, From the Front Lines</h2>
+        <p id="about-p1">Good pharmacotherapy information that's truly actionable is hard to find. Pharmmed exists to close that gap — delivering content from practicing clinicians who understand both the evidence and the reality of patient care.</p>
+        <p id="about-p2">Whether you're preparing for board exams, deepening your clinical skills, or staying current on drug interactions and guidelines, this is your trusted resource.</p>
+        <div class="pills" id="pills-el"><span class="pill">Drug Interactions</span><span class="pill">Pharmacokinetics</span><span class="pill">Board Prep</span><span class="pill">Therapeutics</span><span class="pill">Clinical Pearls</span><span class="pill">AMR Stewardship</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="features-wrap" id="features-wrap">
+    <div class="features-inner">
+      <div class="features-hdr"><span class="eyebrow">What We Offer</span><h2 class="section-title">Premium Pharmacy Education</h2></div>
+      <div class="feat-grid">
+        <div class="feat-card"><div class="feat-icon">📚</div><h3>Board Exam Prep</h3><p>Structured study guides and practice questions for BCPS, BCGP, BCACP, and NAPLEX.</p></div>
+        <div class="feat-card"><div class="feat-icon">⚗️</div><h3>Clinical Drug Reviews</h3><p>In-depth, evidence-based reviews of drug classes, mechanisms, interactions, and applications.</p></div>
+        <div class="feat-card"><div class="feat-icon">🧬</div><h3>Pharmacogenomics</h3><p>PGx testing, gene-drug interactions, and applying genomic data to prescribing decisions.</p></div>
+        <div class="feat-card"><div class="feat-icon">📊</div><h3>Drug Comparison Tables</h3><p>Quick-reference charts for drug class comparisons, dosing, and monitoring parameters.</p></div>
+        <div class="feat-card"><div class="feat-icon">🎯</div><h3>Case-Based Learning</h3><p>Real-world patient scenarios to sharpen clinical reasoning and decision-making.</p></div>
+        <div class="feat-card"><div class="feat-icon">🦠</div><h3>AMR Stewardship</h3><p>Practical antimicrobial stewardship content informed by Kenya's GAP-AMR framework.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="blog-hdr">
+      <div><span class="eyebrow">Latest Articles</span><h2 class="section-title">From the Blog</h2></div>
+      <span class="blog-view-all" onclick="showPage('blog')">View All Posts →</span>
+    </div>
+    <div id="home-posts"></div>
+  </div>
+
+  <!-- Custom sections inject here -->
+  <div id="custom-sections-render"></div>
+
+  <div class="testi-wrap" id="testi-wrap">
+    <div class="testi-inner">
+      <div class="testi-hdr"><span class="eyebrow">Community Voices</span><h2 class="section-title">What Readers Are Saying</h2></div>
+      <div class="testi-grid" id="testi-grid"></div>
+    </div>
+  </div>
+
+  <div id="subscribe" class="subscribe-wrap" style="padding-top:80px;">
+    <div class="subscribe-box">
+      <span class="eyebrow">Stay Current</span>
+      <h2 class="section-title">Join 8,000+ Pharmacy Professionals</h2>
+      <p>Clinical pearls, drug reviews, and new articles — delivered to your inbox. Free, always.</p>
+      <div class="sub-form"><input type="email" id="sub-email" placeholder="your@email.com"><button onclick="doSubscribe()">Subscribe</button></div>
+      <div class="sub-success" id="sub-ok">✓ You're subscribed! Check your inbox.</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="foot-inner">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <span class="logo" onclick="showPage('home')" style="font-size:1.4rem;" id="footer-logo-el">Pharm<span>med</span></span>
+          <p id="footer-tag">Evidence-based pharmacy and medical education for clinicians who want to practice better, safer, and smarter.</p>
+          <p style="margin-top:8px;font-size:.75rem;color:#1e3040;">For educational purposes only. Not a substitute for clinical judgment.</p>
+        </div>
+        <div class="foot-col"><h4>Navigate</h4><ul><li><a onclick="showPage('home')">Home</a></li><li><a onclick="showPage('blog')">Blog</a></li><li><a onclick="showPage('about')">About</a></li></ul></div>
+        <div class="foot-col"><h4>Topics</h4><ul id="foot-topics"><li><a onclick="fCat('Drug Interactions')">Drug Interactions</a></li><li><a onclick="fCat('Therapeutics')">Therapeutics</a></li><li><a onclick="fCat('AMR Stewardship')">AMR Stewardship</a></li><li><a onclick="fCat('Clinical Skills')">Clinical Skills</a></li></ul></div>
+        <div class="foot-col"><h4>Legal</h4><ul><li><a onclick="showPage('about')">Disclaimer</a></li><li><a onclick="showPage('about')">Privacy</a></li><li><a id="contact-link" href="mailto:abugakaunda@gmail.com">Contact</a></li></ul></div>
+      </div>
+      <div class="foot-bottom"><span>© 2026 Pharmmed. All rights reserved.</span><span>Built for clinicians, by clinicians.</span></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════ BLOG PAGE ═══════════════════════ -->
+<div id="page-blog" class="page-hidden">
+  <nav><div class="nav-inner"><span class="logo" onclick="showPage('home')">Pharm<span>med</span></span><ul class="nav-links"><li><a onclick="showPage('home')">Home</a></li><li><a onclick="showPage('blog')" class="active">Blog</a></li><li><a onclick="showPage('about')">About</a></li></ul></div></nav>
+  <div class="blog-page">
+    <span class="eyebrow">All Articles</span>
+    <h1 class="section-title" style="font-size:2.8rem;margin-bottom:10px;">The Blog</h1>
+    <p style="color:var(--mid);max-width:520px;margin-bottom:32px;line-height:1.7;">Evidence-based drug reviews, clinical pearls, and pharmacology education from practicing clinicians.</p>
+    <div class="category-filters" id="cat-filters"></div>
+    <div class="post-grid" id="blog-grid"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ ABOUT PAGE ═══════════════════════ -->
+<div id="page-about" class="page-hidden">
+  <nav><div class="nav-inner"><span class="logo" onclick="showPage('home')">Pharm<span>med</span></span><ul class="nav-links"><li><a onclick="showPage('home')">Home</a></li><li><a onclick="showPage('blog')">Blog</a></li><li><a onclick="showPage('about')" class="active">About</a></li></ul></div></nav>
+  <div style="background:var(--navy);padding:72px 24px;text-align:center;"><div style="max-width:600px;margin:0 auto;"><span class="eyebrow" style="color:#7FD9C9;">About</span><h1 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;color:#fff;margin-bottom:16px;line-height:1.15;">Built by Clinicians.<br>For Clinicians.</h1><p style="color:#8fa8be;line-height:1.75;">Pharmmed is an independent clinical pharmacy and medical education blog dedicated to bridging the gap between pharmacological evidence and real-world patient care.</p></div></div>
+  <div class="about-page">
+    <section><span class="eyebrow">Mission</span><h2>Evidence that works in the real world</h2><p>Good pharmacotherapy information that's truly actionable is hard to find. Pharmmed exists to close that gap — delivering content that's both evidence-based and clinically practical.</p></section>
+    <section><span class="eyebrow">The Author</span><h2>Pharmmed Editorial</h2><p id="bio1-el">Pharmmed is written by a pharmacist trained at the School of Pharmacy, University of Nairobi, with a background in clinical pharmacy and health data analytics. Experience spans clinical practice, healthcare quality improvement, and health data work in resource-constrained settings across Kenya.</p><p id="bio2-el">The focus is on content that reflects the realities of healthcare delivery in diverse clinical environments — not just high-resource Western hospital settings.</p></section>
+    <section><div class="disclaimer-box"><strong>⚠️ Disclaimer — Educational Purposes Only</strong><br><br>All content on Pharmmed is for educational and informational purposes only. Nothing constitutes medical advice or a substitute for professional judgment. Always verify with authoritative references and institutional protocols.</div></section>
+    <section><span class="eyebrow">Privacy</span><h2>Your Data</h2><p>Pharmmed collects only the email address you voluntarily provide when subscribing. It is never sold or shared. You may unsubscribe at any time.</p></section>
+    <section><span class="eyebrow">Contact</span><h2>Get in Touch</h2><p>Topic suggestions, corrections, or collaboration inquiries welcome.</p><a id="contact-link2" href="mailto:abugakaunda@gmail.com" class="contact-btn">✉ Send an Email</a></section>
+  </div>
+</div>
+
+<!-- ═══════════════════════ POST PAGE ═══════════════════════ -->
+<div id="page-post" class="page-hidden">
+  <nav><div class="nav-inner"><span class="logo" onclick="showPage('home')">Pharm<span>med</span></span><ul class="nav-links"><li><a onclick="showPage('home')">Home</a></li><li><a onclick="showPage('blog')">Blog</a></li><li><a onclick="showPage('about')">About</a></li></ul></div></nav>
+  <div id="post-hero" class="post-hero">
+    <div class="post-hero-overlay"></div>
+    <div style="position:relative;max-width:700px;margin:0 auto;">
+      <span id="post-cat" class="cat-badge" style="position:relative;top:auto;left:auto;display:inline-block;margin-bottom:16px;"></span>
+      <h1 id="post-title"></h1>
+      <p id="post-byline" style="color:rgba(255,255,255,.65);font-size:.85rem;margin-top:12px;position:relative;"></p>
+    </div>
+  </div>
+  <div class="post-page">
+    <div class="breadcrumb"><a onclick="showPage('home')">Home</a> / <a onclick="showPage('blog')">Blog</a> / <span id="post-crumb"></span></div>
+    <div class="disclaimer-box">⚠️ <strong>Educational purposes only.</strong> Not a substitute for clinical judgment or current prescribing information. Always verify with authoritative references.</div>
+    <div class="post-content" id="post-body"></div>
+    <span class="back-link" onclick="showPage('blog')">← Back to all articles</span>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+//  SITE DATA — all editable state lives here
+// ═══════════════════════════════════════════════════════════
+var S = {
+  name:"Pharmmed",
+  topbar:"New: Pharmacokinetics Deep Dive — Free for subscribers · Join 8,000+ pharmacy professionals",
+  h1:"Evidence-Based Insights for Modern Clinicians",
+  sub:"Pharmmed bridges the gap between pharmacology and patient care — practical, peer-reviewed content for pharmacy professionals, nurses, and prescribers.",
+  s1:"8K+",s2:"300+",s3:"50K+",
+  aboutTitle:"Real Clinical Knowledge, From the Front Lines",
+  ap1:"Good pharmacotherapy information that's truly actionable is hard to find. Pharmmed exists to close that gap — delivering content from practicing clinicians who understand both the evidence and the reality of patient care.",
+  ap2:"Whether you're preparing for board exams, deepening your clinical skills, or staying current on drug interactions and guidelines, this is your trusted resource.",
+  pills:"Drug Interactions,Pharmacokinetics,Board Prep,Therapeutics,Clinical Pearls,AMR Stewardship",
+  bio1:"Pharmmed is written by a pharmacist trained at the School of Pharmacy, University of Nairobi, with a background in clinical pharmacy and health data analytics. Experience spans clinical practice, healthcare quality improvement, and health data work in resource-constrained settings across Kenya.",
+  bio2:"The focus is on content that reflects the realities of healthcare delivery in diverse clinical environments — not just high-resource Western hospital settings.",
+  email:"abugakaunda@gmail.com",
+  footerTag:"Evidence-based pharmacy and medical education for clinicians who want to practice better, safer, and smarter.",
+  adminPw:"Pharmmed2026!",
+  showTesti:true,
+  showFeat:true
+};
+
+var POSTS = [
+  {id:"ssri",emoji:"🧪",grad:"linear-gradient(135deg,#0D3B4F,#0A7C6E)",cat:"Drug Interactions",date:"May 10, 2026",read:"7 min",title:"Top 5 SSRI Drug Interactions Every Clinician Should Know",excerpt:"SSRIs are among the most commonly involved medications in serious drug interactions. Here's what every prescriber must know.",body:"<p>Selective serotonin reuptake inhibitors (SSRIs) are among the most prescribed drug classes globally. With high utilization comes significant potential for drug interactions.</p><h2>1. SSRIs + MAO Inhibitors → Serotonin Syndrome</h2><p>The most dangerous SSRI interaction. MAOIs — including linezolid and methylene blue — can precipitate life-threatening serotonin syndrome.</p><ul><li><strong>Neuromuscular:</strong> tremor, myoclonus, hyperreflexia, clonus</li><li><strong>Autonomic:</strong> hyperthermia, tachycardia, diaphoresis</li><li><strong>Cognitive:</strong> agitation, confusion</li></ul><blockquote>A washout period of at least 14 days is required when switching between SSRIs and MAOIs (5 weeks for fluoxetine due to its long half-life).</blockquote><h2>2. SSRIs + Warfarin → Elevated Bleeding Risk</h2><p>SSRIs inhibit platelet serotonin uptake, impairing platelet aggregation. Combined with warfarin, this creates additive bleeding risk — particularly GI bleeding. Monitor INR closely. Consider a PPI for gastroprotection in high-risk patients.</p><h2>3. Fluoxetine/Fluvoxamine + CYP2D6 Substrates</h2><p>Both are potent CYP2D6 inhibitors. Key substrates: codeine (reduced efficacy), tamoxifen (reduced endoxifen levels), and tricyclic antidepressants (elevated plasma levels, toxicity risk).</p><h2>4. SSRIs + NSAIDs → GI Bleeding</h2><p>This combination synergistically increases upper GI bleeding risk — up to 15-fold compared to either agent alone. A PPI should be strongly considered in patients requiring both agents chronically.</p><h2>5. SSRIs + Triptans</h2><p>The FDA issued a 2006 warning, but the American Headache Society does not consider this contraindicated. Evidence for clinically significant serotonin syndrome is limited. Counsel patients to report symptoms.</p><h2>Bottom Line</h2><p>SSRIs interact through multiple mechanisms: CYP enzyme inhibition, serotonergic potentiation, and platelet dysfunction. Careful medication reconciliation at every encounter is essential.</p>"},
+  {id:"doac",emoji:"💉",grad:"linear-gradient(135deg,#0D1A2A,#3B6EC2)",cat:"Therapeutics",date:"Apr 8, 2026",read:"9 min",title:"DOAC vs. Warfarin in 2026 — Updated Evidence You Need to Know",excerpt:"New trial data reshaping anticoagulation decisions in AF, VTE, and mechanical valve patients.",body:"<p>The anticoagulation landscape has shifted dramatically. DOACs have largely displaced warfarin in most indications — but the decision is never one-size-fits-all.</p><h2>When DOACs Win</h2><p>For most patients with non-valvular AF or VTE, DOACs are now first-line. Evidence from ARISTOTLE, ROCKET-AF, RE-LY, and ENGAGE AF-TIMI 48 consistently shows: comparable or superior stroke prevention, significantly lower intracranial hemorrhage rates, no INR monitoring, and fewer interactions.</p><h2>When Warfarin Remains the Choice</h2><p><strong>Mechanical heart valves:</strong> DOACs are contraindicated. RE-ALIGN was terminated early due to excess stroke and bleeding with dabigatran.</p><p><strong>Triple-positive APS:</strong> TRAPS showed rivaroxaban inferior. Warfarin with INR 2–3 remains standard.</p><p><strong>Severe renal impairment:</strong> Most DOACs are renally cleared. Warfarin may be preferred in CrCl &lt;15–25 mL/min.</p><p><strong>Cost and access:</strong> In resource-constrained settings like Kenya, warfarin remains accessible and affordable with a universally available reversal algorithm.</p><h2>Bottom Line</h2><p>DOACs are the default for most AF and VTE patients in 2026. Warfarin retains its niche in mechanical valves, high-risk APS, severe CKD, and resource-limited settings. Individualize every decision.</p>"},
+  {id:"amr",emoji:"🦠",grad:"linear-gradient(135deg,#0D2A1A,#2E8B57)",cat:"AMR Stewardship",date:"Mar 20, 2026",read:"6 min",title:"Kenya's GAP-AMR Framework: What Pharmacists Need to Know",excerpt:"Implications for prescribing, dispensing, and stewardship practice across all healthcare tiers.",body:"<p>Antimicrobial resistance (AMR) is an active clinical reality in Kenyan healthcare settings. The GAP-AMR framework establishes a national strategy with direct implications for pharmacy practice.</p><h2>The AWaRe Classification</h2><table><thead><tr><th>Category</th><th>Examples</th><th>Guidance</th></tr></thead><tbody><tr><td><strong>Access</strong></td><td>Amoxicillin, Cotrimoxazole, Doxycycline</td><td>First-line for common infections</td></tr><tr><td><strong>Watch</strong></td><td>Fluoroquinolones, 3rd-gen cephalosporins</td><td>Use only when Access agents fail</td></tr><tr><td><strong>Reserve</strong></td><td>Carbapenems, Colistin</td><td>Last resort; strict stewardship required</td></tr></tbody></table><h2>What This Means at the Facility Level</h2><p><strong>Know your local antibiogram.</strong> Empirical therapy should be guided by local resistance patterns, not guidelines written for different epidemiologies.</p><p><strong>Engage with stewardship teams.</strong> Pharmacy input on drug selection, de-escalation, and IV-to-oral switch is essential.</p><p><strong>Educate patients at the point of dispensing.</strong> Course completion, food interactions, and proper storage matter for therapeutic outcomes.</p><h2>Bottom Line</h2><p>For Kenyan pharmacists, the GAP-AMR framework is not just policy — it's a roadmap for practice. The pharmacist's role in AMR is not peripheral. It is central.</p>"},
+  {id:"medlist",emoji:"📋",grad:"linear-gradient(135deg,#1A0D2A,#6B48A0)",cat:"Clinical Skills",date:"Apr 29, 2026",read:"5 min",title:"If I Had 60 Seconds to Review a Med List, Here's What I'd Do",excerpt:"A rapid, systematic approach to medication reconciliation that prioritizes high-risk drugs.",body:"<p>You have a patient, a 12-drug med list, and less than a minute. What do you prioritize?</p><h2>Step 1: Scan for High-Alert Medications (10 sec)</h2><ul><li>Anticoagulants (warfarin, DOACs, heparins)</li><li>Insulin and oral hypoglycemics</li><li>Opioids</li><li>Narrow therapeutic index drugs (digoxin, lithium, phenytoin)</li></ul><h2>Step 2: Check Renal Function Against Dosing (15 sec)</h2><p>Pull the most recent eGFR. Flag any renally-cleared drug whose dose hasn't been adjusted. Common culprits: metformin, gabapentin, DOACs, most antibiotics.</p><h2>Step 3: Look for Classic Interaction Pairs (15 sec)</h2><ul><li>SSRI + NSAID → GI bleeding</li><li>ACE inhibitor + K+-sparing diuretic → hyperkalemia</li><li>Warfarin + new antibiotic → INR shift</li><li>Statin + strong CYP3A4 inhibitor → myopathy</li></ul><h2>Step 4: Check Indication and Appropriateness (15 sec)</h2><p>For each medication: is there still a documented indication? Undiscovered inappropriate medications are where polypharmacy starts.</p><h2>Bottom Line</h2><p>The 60-second review isn't about catching everything. It's about catching the things that could seriously harm the patient today.</p>"}
+];
+
+var TESTIMONIALS = [
+  {stars:"★★★★★",text:"Pharmmed is the only resource I recommend to my residents and pharmacy students. The drug interaction breakdowns are clinically relevant and actionable at the bedside.",author:"Dr. A. Okonkwo, PharmD, BCPS",role:"Clinical Pharmacist, Internal Medicine"},
+  {stars:"★★★★★",text:"I passed my BCGP on the first attempt. The structured content filled in gaps I didn't even know I had. The best free pharmacy education resource out there.",author:"Michelle T., PharmD",role:"Geriatric Pharmacy Specialist"},
+  {stars:"★★★★★",text:"As an NP, pharmacology is always an area I want to strengthen. Pharmmed makes complex drug concepts approachable without watering down the clinical detail.",author:"James R., NP-C",role:"Family Nurse Practitioner"},
+  {stars:"★★★★★",text:"The case-based articles are exceptional. I've started using them during our pharmacy team huddles. Engagement went up immediately — the content is that good.",author:"Sandra M., PharmD, BCACP",role:"Ambulatory Care Pharmacist"}
+];
+
+// Custom sections added by admin
+var CUSTOM_SECTIONS = [];
+
+// ═══════════════════════════════════════════════════════════
+//  ADMIN AUTH
+// ═══════════════════════════════════════════════════════════
+var isAdmin = false;
+var logoTaps = 0, logoTick = null;
+document.getElementById('logo-el').addEventListener('click', function(){
+  logoTaps++; clearTimeout(logoTick);
+  logoTick = setTimeout(function(){ logoTaps=0; },1500);
+  if(logoTaps>=5){ logoTaps=0; openLock(); }
+});
+function openLock(){ document.getElementById('admin-lock').classList.add('show'); setTimeout(function(){ document.getElementById('admin-pw').focus(); },100); }
+function closeLock(){ document.getElementById('admin-lock').classList.remove('show'); document.getElementById('admin-pw').value=''; document.getElementById('lock-error').style.display='none'; }
+function checkPw(){
+  var pw=document.getElementById('admin-pw').value;
+  if(pw===S.adminPw){ closeLock(); activateAdmin(); }
+  else{ document.getElementById('lock-error').style.display='block'; document.getElementById('admin-pw').value=''; document.getElementById('admin-pw').focus(); }
+}
+function activateAdmin(){
+  isAdmin=true;
+  document.getElementById('admin-bar').classList.add('show');
+  document.body.classList.add('admin-mode');
+  populateFields();
+  renderPostsEditor();
+  renderTestiEditor();
+  renderCustomSectionsList();
+}
+function logoutAdmin(){
+  isAdmin=false;
+  document.getElementById('admin-bar').classList.remove('show');
+  document.getElementById('edit-panel').classList.remove('show');
+  document.body.classList.remove('admin-mode');
+}
+function changePw(){
+  var old=document.getElementById('f-oldpw').value, nw=document.getElementById('f-newpw').value, msg=document.getElementById('pw-msg');
+  if(old!==S.adminPw){ msg.style.display='block'; msg.style.color='#f87171'; msg.textContent='Current password incorrect.'; return; }
+  if(nw.length<6){ msg.style.display='block'; msg.style.color='#f87171'; msg.textContent='New password must be at least 6 characters.'; return; }
+  S.adminPw=nw; document.getElementById('f-oldpw').value=''; document.getElementById('f-newpw').value='';
+  msg.style.display='block'; msg.style.color='#6ee7b7'; msg.textContent='Password updated!';
+  setTimeout(function(){ msg.style.display='none'; },3000);
+}
+
+// ═══════════════════════════════════════════════════════════
+//  EDIT PANEL
+// ═══════════════════════════════════════════════════════════
+var currentPanel = 'content';
+function togglePanel(tab){
+  var ep=document.getElementById('edit-panel');
+  if(ep.classList.contains('show') && currentPanel===tab){ ep.classList.remove('show'); return; }
+  ep.classList.add('show');
+  epTab(tab, null);
+}
+function epTab(id, btn){
+  currentPanel=id;
+  document.querySelectorAll('.ep-tab').forEach(function(t){ t.classList.remove('active'); });
+  document.querySelectorAll('.ep-tab-pane').forEach(function(p){ p.classList.remove('active'); });
+  var pane=document.getElementById('pane-'+id);
+  if(pane) pane.classList.add('active');
+  if(btn) btn.classList.add('active');
+  else{
+    document.querySelectorAll('.ep-tab').forEach(function(t){ if(t.textContent.toLowerCase().replace(/\s/,'')=== id.replace('-','').toLowerCase()) t.classList.add('active'); });
+  }
+}
+
+function populateFields(){
+  document.getElementById('f-name').value=S.name;
+  document.getElementById('f-topbar').value=S.topbar;
+  document.getElementById('f-h1').value=S.h1;
+  document.getElementById('f-sub').value=S.sub;
+  document.getElementById('f-s1').value=S.s1;
+  document.getElementById('f-s2').value=S.s2;
+  document.getElementById('f-s3').value=S.s3;
+  document.getElementById('f-at').value=S.aboutTitle;
+  document.getElementById('f-ap1').value=S.ap1;
+  document.getElementById('f-ap2').value=S.ap2;
+  document.getElementById('f-pills').value=S.pills;
+  document.getElementById('f-bio1').value=S.bio1;
+  document.getElementById('f-bio2').value=S.bio2;
+  document.getElementById('f-email').value=S.email;
+  document.getElementById('f-ftag').value=S.footerTag;
+  document.getElementById('f-show-testi').checked=S.showTesti;
+  document.getElementById('f-show-feat').checked=S.showFeat;
+}
+
+function lu(){
+  S.name=v('f-name'); S.topbar=v('f-topbar'); S.h1=v('f-h1'); S.sub=v('f-sub');
+  S.s1=v('f-s1'); S.s2=v('f-s2'); S.s3=v('f-s3');
+  S.aboutTitle=v('f-at'); S.ap1=v('f-ap1'); S.ap2=v('f-ap2'); S.pills=v('f-pills');
+  S.bio1=v('f-bio1'); S.bio2=v('f-bio2'); S.email=v('f-email'); S.footerTag=v('f-ftag');
+  S.showTesti=document.getElementById('f-show-testi').checked;
+  S.showFeat=document.getElementById('f-show-feat').checked;
+  applyToDOM();
+}
+function v(id){ var el=document.getElementById(id); return el?el.value:''; }
+
+function applyToDOM(){
+  setText('topbar-el', S.topbar);
+  setHTML('hero-h1', S.h1);
+  setText('hero-sub', S.sub);
+  setText('stat1', S.s1); setText('stat2', S.s2); setText('stat3', S.s3);
+  setText('about-title', S.aboutTitle);
+  setText('about-p1', S.ap1); setText('about-p2', S.ap2);
+  setText('footer-tag', S.footerTag);
+  setText('bio1-el', S.bio1); setText('bio2-el', S.bio2);
+  var cl=document.getElementById('contact-link'); if(cl) cl.href='mailto:'+S.email;
+  var cl2=document.getElementById('contact-link2'); if(cl2) cl2.href='mailto:'+S.email;
+  // Pills
+  var pe=document.getElementById('pills-el');
+  if(pe){ pe.innerHTML=S.pills.split(',').map(function(p){ return '<span class="pill">'+p.trim()+'</span>'; }).join(''); }
+  // Features toggle
+  var fw=document.getElementById('features-wrap');
+  if(fw) fw.style.display=S.showFeat?'':'none';
+  // Testi toggle
+  var tw=document.getElementById('testi-wrap');
+  if(tw) tw.style.display=S.showTesti?'':'none';
+  renderTestiGrid();
+}
+function setText(id,val){ var el=document.getElementById(id); if(el) el.textContent=val; }
+function setHTML(id,val){ var el=document.getElementById(id); if(el) el.innerHTML=val; }
+
+// ═══════════════════════════════════════════════════════════
+//  TESTIMONIALS EDITOR
+// ═══════════════════════════════════════════════════════════
+function addTesti(){
+  TESTIMONIALS.push({stars:"★★★★★",text:"Your testimonial text here.",author:"Name, Credentials",role:"Title / Specialty"});
+  renderTestiEditor(); renderTestiGrid();
+}
+function renderTestiEditor(){
+  var html='';
+  TESTIMONIALS.forEach(function(t,i){
+    html+='<div class="ep-card"><div class="ep-card-hdr"><span class="ep-card-title">Testimonial '+(i+1)+'</span><button class="ep-btn-del" onclick="TESTIMONIALS.splice('+i+',1);renderTestiEditor();renderTestiGrid();">✕ Remove</button></div>';
+    html+='<div class="ep-field"><label class="ep-label">Quote</label><textarea class="ep-input" oninput="TESTIMONIALS['+i+'].text=this.value;renderTestiGrid();">'+esc(t.text)+'</textarea></div>';
+    html+='<div class="ep-field"><label class="ep-label">Author</label><input class="ep-input" value="'+esc(t.author)+'" oninput="TESTIMONIALS['+i+'].author=this.value;renderTestiGrid();"></div>';
+    html+='<div class="ep-field"><label class="ep-label">Role</label><input class="ep-input" value="'+esc(t.role)+'" oninput="TESTIMONIALS['+i+'].role=this.value;renderTestiGrid();"></div>';
+    html+='</div>';
+  });
+  document.getElementById('testi-editor').innerHTML=html;
+}
+function renderTestiGrid(){
+  var g=document.getElementById('testi-grid');
+  if(!g) return;
+  g.innerHTML=TESTIMONIALS.map(function(t){
+    return '<div class="testi-card"><div class="stars">'+t.stars+'</div><p class="testi-text">'+esc(t.text)+'</p><div class="testi-author">'+esc(t.author)+'</div><div class="testi-role">'+esc(t.role)+'</div></div>';
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════════════════
+//  POSTS EDITOR
+// ═══════════════════════════════════════════════════════════
+function addPost(){
+  POSTS.push({id:'post-'+Date.now(),emoji:'📝',grad:'linear-gradient(135deg,#0D1B2A,#0A7C6E)',cat:'General',date:'',read:'5 min',title:'New Article Title',excerpt:'Article excerpt goes here.',body:'<p>Write your article content here. You can use &lt;h2&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;blockquote&gt;, and &lt;table&gt; tags.</p>'});
+  renderPostsEditor(); renderPosts();
+}
+function renderPostsEditor(){
+  var html='';
+  POSTS.forEach(function(p,i){
+    html+='<div class="ep-card"><div class="ep-card-hdr"><span class="ep-card-title">'+p.emoji+' Post '+(i+1)+'</span><button class="ep-btn-del" onclick="POSTS.splice('+i+',1);renderPostsEditor();renderPosts();">✕ Remove</button></div>';
+    html+='<div class="ep-field"><label class="ep-label">Emoji</label><input class="ep-input" value="'+esc(p.emoji)+'" oninput="POSTS['+i+'].emoji=this.value;renderPosts();" style="width:70px;display:inline-block;"></div>';
+    html+='<div class="ep-field"><label class="ep-label">Title</label><input class="ep-input" value="'+esc(p.title)+'" oninput="POSTS['+i+'].title=this.value;renderPosts();"></div>';
+    html+='<div class="ep-field"><label class="ep-label">Category</label><input class="ep-input" value="'+esc(p.cat)+'" oninput="POSTS['+i+'].cat=this.value;renderPosts();"></div>';
+    html+='<div class="ep-field"><label class="ep-label">Date</label><input class="ep-input" value="'+esc(p.date)+'" oninput="POSTS['+i+'].date=this.value;renderPosts();" placeholder="e.g. Jun 1, 2026"></div>';
+    html+='<div class="ep-field"><label class="ep-label">Read Time</label><input class="ep-input" value="'+esc(p.read)+'" oninput="POSTS['+i+'].read=this.value;renderPosts();" placeholder="e.g. 5 min"></div>';
+    html+='<div class="ep-field"><label class="ep-label">Excerpt (shown on cards)</label><textarea class="ep-input" oninput="POSTS['+i+'].excerpt=this.value;renderPosts();">'+esc(p.excerpt)+'</textarea></div>';
+    html+='<div class="ep-field"><label class="ep-label">Article Body (HTML allowed)</label><textarea class="ep-input" rows="6" oninput="POSTS['+i+'].body=this.value;" style="font-family:monospace;font-size:.72rem;">'+esc(p.body)+'</textarea><div class="ep-hint">Use &lt;h2&gt;, &lt;p&gt;, &lt;ul&gt;&lt;li&gt;, &lt;blockquote&gt;, &lt;table&gt; tags</div></div>';
+    html+='</div>';
+  });
+  document.getElementById('posts-editor').innerHTML=html;
+}
+
+// ═══════════════════════════════════════════════════════════
+//  CUSTOM SECTIONS
+// ═══════════════════════════════════════════════════════════
+var SECTION_TEMPLATES = {
+  'text-block':{ label:'Text Block', theme:'light', fields:[
+    {key:'eyebrow',label:'Eyebrow Label',type:'input',ph:'e.g. Clinical Resources'},
+    {key:'title',label:'Section Title',type:'input',ph:'e.g. Further Reading'},
+    {key:'body',label:'Content (HTML allowed)',type:'textarea',ph:'<p>Your text here...</p>'}
+  ]},
+  'two-col':{ label:'Two Column', theme:'light', fields:[
+    {key:'eyebrow',label:'Eyebrow Label',type:'input',ph:''},
+    {key:'title',label:'Left Column Title',type:'input',ph:''},
+    {key:'body',label:'Left Column Text',type:'textarea',ph:'<p>Left side content...</p>'},
+    {key:'right',label:'Right Column Text',type:'textarea',ph:'<p>Right side content...</p>'}
+  ]},
+  'cards':{ label:'3 Info Cards', theme:'light', fields:[
+    {key:'eyebrow',label:'Eyebrow Label',type:'input',ph:''},
+    {key:'title',label:'Section Title',type:'input',ph:''},
+    {key:'c1icon',label:'Card 1 Emoji',type:'input',ph:'💊'},
+    {key:'c1title',label:'Card 1 Title',type:'input',ph:''},
+    {key:'c1body',label:'Card 1 Text',type:'textarea',ph:''},
+    {key:'c2icon',label:'Card 2 Emoji',type:'input',ph:'🧬'},
+    {key:'c2title',label:'Card 2 Title',type:'input',ph:''},
+    {key:'c2body',label:'Card 2 Text',type:'textarea',ph:''},
+    {key:'c3icon',label:'Card 3 Emoji',type:'input',ph:'📊'},
+    {key:'c3title',label:'Card 3 Title',type:'input',ph:''},
+    {key:'c3body',label:'Card 3 Text',type:'textarea',ph:''}
+  ]},
+  'callout':{ label:'Callout Box', theme:'light', fields:[
+    {key:'title',label:'Callout Title',type:'input',ph:'Key Clinical Pearl'},
+    {key:'body',label:'Callout Text',type:'textarea',ph:'Important point to highlight...'}
+  ]},
+  'stats':{ label:'Stat Strip', theme:'dark', fields:[
+    {key:'eyebrow',label:'Eyebrow',type:'input',ph:'By the Numbers'},
+    {key:'title',label:'Section Title',type:'input',ph:''},
+    {key:'s1num',label:'Stat 1 Number',type:'input',ph:'92%'},
+    {key:'s1label',label:'Stat 1 Label',type:'input',ph:'Adherence Rate'},
+    {key:'s2num',label:'Stat 2 Number',type:'input',ph:'40%'},
+    {key:'s2label',label:'Stat 2 Label',type:'input',ph:''},
+    {key:'s3num',label:'Stat 3 Number',type:'input',ph:''},
+    {key:'s3label',label:'Stat 3 Label',type:'input',ph:''},
+    {key:'s4num',label:'Stat 4 Number',type:'input',ph:''},
+    {key:'s4label',label:'Stat 4 Label',type:'input',ph:''}
+  ]},
+  'resources':{ label:'Resource List', theme:'light', fields:[
+    {key:'eyebrow',label:'Eyebrow',type:'input',ph:'Useful References'},
+    {key:'title',label:'Section Title',type:'input',ph:'Further Reading'},
+    {key:'items',label:'Items (one per line, start with emoji)',type:'textarea',ph:'📖 Clinical Pharmacology Made Easy\n🔗 WHO AWaRe Classification 2023\n📋 Kenya Standard Treatment Guidelines'}
+  ]},
+  'podcast':{ label:'Podcast / Audio', theme:'teal-bg', fields:[
+    {key:'eyebrow',label:'Eyebrow',type:'input',ph:'Audio Learning'},
+    {key:'title',label:'Title',type:'input',ph:'The Pharmmed Podcast'},
+    {key:'body',label:'Description',type:'textarea',ph:'Short podcast description...'},
+    {key:'link',label:'Listen Link / URL',type:'input',ph:'https://...'},
+    {key:'ep1',label:'Episode 1 Title',type:'input',ph:''},
+    {key:'ep2',label:'Episode 2 Title',type:'input',ph:''},
+    {key:'ep3',label:'Episode 3 Title',type:'input',ph:''}
+  ]},
+  'cta':{ label:'CTA Banner', theme:'dark', fields:[
+    {key:'eyebrow',label:'Eyebrow',type:'input',ph:''},
+    {key:'title',label:'Headline',type:'input',ph:'Ready to Level Up Your Clinical Knowledge?'},
+    {key:'body',label:'Subtitle',type:'textarea',ph:'Join thousands of pharmacy professionals...'},
+    {key:'btnLabel',label:'Button Label',type:'input',ph:'Get Started Free'},
+    {key:'btnLink',label:'Button Link',type:'input',ph:'#subscribe'}
+  ]}
+};
+
+function addSection(type){
+  var tmpl=SECTION_TEMPLATES[type];
+  if(!tmpl) return;
+  var sec={ id:'cs-'+Date.now(), type:type, label:tmpl.label, theme:tmpl.theme||'light', data:{} };
+  tmpl.fields.forEach(function(f){ sec.data[f.key]=''; });
+  CUSTOM_SECTIONS.push(sec);
+  renderCustomSectionsList();
+  renderCustomSectionsDOM();
+  // Switch to sections tab
+  epTab('sections', null);
+}
+
+function renderCustomSectionsList(){
+  var el=document.getElementById('custom-sections-list');
+  if(!el) return;
+  if(CUSTOM_SECTIONS.length===0){ el.innerHTML='<p style="color:#3a5060;font-size:.78rem;">No custom sections yet. Choose a type above.</p>'; return; }
+  var html='';
+  CUSTOM_SECTIONS.forEach(function(sec,i){
+    html+='<div class="ep-card"><div class="ep-card-hdr"><span class="ep-card-title">'+sec.label+'</span>';
+    html+='<div style="display:flex;gap:4px;">';
+    if(i>0) html+='<button class="ep-btn-del" onclick="moveSec('+i+',-1)" style="background:rgba(255,255,255,.08);color:#9aa8b8;">↑</button>';
+    if(i<CUSTOM_SECTIONS.length-1) html+='<button class="ep-btn-del" onclick="moveSec('+i+',1)" style="background:rgba(255,255,255,.08);color:#9aa8b8;">↓</button>';
+    html+='<button class="ep-btn-del" onclick="removeSec('+i+')">✕</button></div></div>';
+    var tmpl=SECTION_TEMPLATES[sec.type];
+    tmpl.fields.forEach(function(f){
+      html+='<div class="ep-field"><label class="ep-label">'+f.label+'</label>';
+      if(f.type==='textarea'){
+        html+='<textarea class="ep-input" oninput="CUSTOM_SECTIONS['+i+'].data[\''+f.key+'\']=this.value;renderCustomSectionsDOM();">'+esc(sec.data[f.key]||'')+'</textarea>';
+      } else {
+        html+='<input class="ep-input" value="'+esc(sec.data[f.key]||'')+'" placeholder="'+esc(f.ph||'')+'" oninput="CUSTOM_SECTIONS['+i+'].data[\''+f.key+'\']=this.value;renderCustomSectionsDOM();">';
+      }
+      html+='</div>';
+    });
+    // Theme selector
+    html+='<div class="ep-field"><label class="ep-label">Background</label><select class="ep-input" onchange="CUSTOM_SECTIONS['+i+'].theme=this.value;renderCustomSectionsDOM();">';
+    ['light','dark','teal-bg'].forEach(function(t){
+      html+='<option value="'+t+'"'+(sec.theme===t?' selected':'')+'>'+{light:'Light (cream)',dark:'Dark (navy)',teal:'Teal'}[t]||t+'</option>';
+    });
+    html+='</select></div>';
+    html+='</div>';
+  });
+  el.innerHTML=html;
+}
+
+function moveSec(i, dir){
+  var tmp=CUSTOM_SECTIONS[i]; CUSTOM_SECTIONS[i]=CUSTOM_SECTIONS[i+dir]; CUSTOM_SECTIONS[i+dir]=tmp;
+  renderCustomSectionsList(); renderCustomSectionsDOM();
+}
+function removeSec(i){
+  CUSTOM_SECTIONS.splice(i,1);
+  renderCustomSectionsList(); renderCustomSectionsDOM();
+}
+
+function renderCustomSectionsDOM(){
+  var container=document.getElementById('custom-sections-render');
+  if(!container) return;
+  container.innerHTML=CUSTOM_SECTIONS.map(function(sec){ return buildSectionHTML(sec); }).join('');
+}
+
+function buildSectionHTML(sec){
+  var d=sec.data, themeClass='custom-section '+(sec.theme==='dark'?'dark':sec.theme==='teal-bg'?'teal-bg':'');
+  var inner='';
+  switch(sec.type){
+    case 'text-block':
+      inner='<div class="custom-section-inner full-width-text">'+(d.eyebrow?'<span class="eyebrow">'+esc(d.eyebrow)+'</span>':'')+(d.title?'<h2 class="section-title">'+esc(d.title)+'</h2>':'')+( d.body||'')+'</div>';
+      break;
+    case 'two-col':
+      inner='<div class="custom-section-inner"><div class="two-col"><div class="two-col-text">'+(d.eyebrow?'<span class="eyebrow">'+esc(d.eyebrow)+'</span>':'')+(d.title?'<h2 class="section-title">'+esc(d.title)+'</h2>':'')+(d.body||'')+'</div><div class="two-col-text">'+(d.right||'')+'</div></div></div>';
+      break;
+    case 'cards':
+      var cards=[{icon:d.c1icon,title:d.c1title,body:d.c1body},{icon:d.c2icon,title:d.c2title,body:d.c2body},{icon:d.c3icon,title:d.c3title,body:d.c3body}];
+      inner='<div class="custom-section-inner">'+(d.eyebrow?'<span class="eyebrow">'+esc(d.eyebrow)+'</span>':'')+(d.title?'<h2 class="section-title" style="margin-bottom:24px;">'+esc(d.title)+'</h2>':'')+'<div class="three-col">'+cards.map(function(c){ return '<div class="info-card"><div class="card-icon">'+(c.icon||'💊')+'</div><h3>'+esc(c.title||'')+'</h3><p>'+esc(c.body||'')+'</p></div>'; }).join('')+'</div></div>';
+      break;
+    case 'callout':
+      inner='<div class="custom-section-inner"><div class="callout-box">'+(d.title?'<h3>'+esc(d.title)+'</h3>':'')+'<p>'+esc(d.body||'')+'</p></div></div>';
+      break;
+    case 'stats':
+      var stats=[{n:d.s1num,l:d.s1label},{n:d.s2num,l:d.s2label},{n:d.s3num,l:d.s3label},{n:d.s4num,l:d.s4label}].filter(function(s){ return s.n; });
+      inner='<div class="custom-section-inner">'+(d.eyebrow?'<span class="eyebrow" style="text-align:center;display:block;">'+esc(d.eyebrow)+'</span>':'')+(d.title?'<h2 class="section-title" style="text-align:center;margin-bottom:32px;">'+esc(d.title)+'</h2>':'')+'<div class="stat-cards">'+stats.map(function(s){ return '<div class="stat-card"><div class="stat-card-num">'+esc(s.n)+'</div><div class="stat-card-label">'+esc(s.l)+'</div></div>'; }).join('')+'</div></div>';
+      break;
+    case 'resources':
+      var items=(d.items||'').split('\n').filter(function(l){ return l.trim(); });
+      inner='<div class="custom-section-inner">'+(d.eyebrow?'<span class="eyebrow">'+esc(d.eyebrow)+'</span>':'')+(d.title?'<h2 class="section-title">'+esc(d.title)+'</h2>':'')+'<ul class="resource-list">'+items.map(function(item){ var parts=item.trim().match(/^(\S+)\s*(.*)/)||['','•',item.trim()]; return '<li><span>'+parts[1]+'</span><span>'+esc(parts[2])+'</span></li>'; }).join('')+'</ul></div>';
+      break;
+    case 'podcast':
+      var eps=[d.ep1,d.ep2,d.ep3].filter(Boolean);
+      inner='<div style="max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;"><div>'+(d.eyebrow?'<span class="eyebrow">'+esc(d.eyebrow)+'</span>':'')+(d.title?'<h2 class="section-title">'+esc(d.title)+'</h2>':'')+'<p style="margin:12px 0 24px;">'+esc(d.body||'')+'</p>'+(d.link?'<a href="'+esc(d.link)+'" style="background:#fff;color:var(--teal);padding:12px 24px;border-radius:6px;font-weight:700;font-size:.85rem;display:inline-block;">Listen Now →</a>':'')+'</div><div style="background:rgba(0,0,0,.2);border-radius:14px;padding:24px;">'+eps.map(function(e,i){ return '<div style="padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1);display:flex;gap:12px;align-items:center;"><div style="background:rgba(255,255,255,.15);color:#fff;width:36px;height:36px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;flex-shrink:0;">Ep<br>'+(i+1)+'</div><span style="color:#fff;font-size:.85rem;font-weight:500;">'+esc(e)+'</span></div>'; }).join('')+'</div></div>';
+      break;
+    case 'cta':
+      inner='<div style="max-width:1140px;margin:0 auto;text-align:center;">'+(d.eyebrow?'<span class="eyebrow" style="color:var(--gold);">'+esc(d.eyebrow)+'</span>':'')+(d.title?'<h2 class="section-title">'+esc(d.title)+'</h2>':'')+'<p style="max-width:480px;margin:0 auto 28px;">'+esc(d.body||'')+'</p>'+(d.btnLabel?'<a href="'+(d.btnLink||'#')+'" style="background:var(--teal);color:#fff;padding:14px 32px;border-radius:6px;font-weight:700;font-size:.88rem;display:inline-block;">'+esc(d.btnLabel)+'</a>':'')+'</div>';
+      break;
+    default: inner='';
+  }
+  return '<div class="'+themeClass+'">'+inner+'</div>';
+}
+
+// ═══════════════════════════════════════════════════════════
+//  RENDER POSTS
+// ═══════════════════════════════════════════════════════════
+function renderPosts(){
+  // Home: featured + 3-grid
+  var featured=POSTS[0], rest=POSTS.slice(1,4);
+  var hp=document.getElementById('home-posts');
+  if(!hp) return;
+  var html='';
+  if(featured){
+    html+='<div class="blog-featured" onclick="openPost(0)"><div class="feat-thumb" style="background:'+featured.grad+'">'+featured.emoji+'<span class="cat-badge">'+featured.cat+'</span></div><div class="feat-body"><div class="post-meta">'+featured.date+(featured.date&&featured.read?' · ':'')+featured.read+(featured.read?' read':'')+'</div><h3 class="section-title" style="font-size:1.25rem;margin-bottom:10px;">'+esc(featured.title)+'</h3><p style="font-size:.88rem;color:var(--mid);line-height:1.7;margin-bottom:14px;">'+esc(featured.excerpt)+'</p><span class="read-more">Read Article</span></div></div>';
+  }
+  html+='<div class="post-grid">'+rest.map(function(p,i){ return postCard(p,i+1); }).join('')+'</div>';
+  hp.innerHTML=html;
+
+  // Blog grid
+  var cats=['All']; POSTS.forEach(function(p){ if(cats.indexOf(p.cat)===-1) cats.push(p.cat); });
+  var cf=document.getElementById('cat-filters');
+  if(cf) cf.innerHTML=cats.map(function(c){ return '<button class="cat-filter'+(c==='All'?' active':'')+'" onclick="fCatUI(\''+c+'\',this)">'+c+'</button>'; }).join('');
+  var bg=document.getElementById('blog-grid');
+  if(bg) bg.innerHTML=POSTS.map(function(p,i){ return postCard(p,i); }).join('');
+}
+
+function postCard(p,i){
+  return '<div class="post-card" onclick="openPost('+i+')" data-cat="'+p.cat+'"><div class="post-thumb" style="background:'+p.grad+'">'+p.emoji+'<span class="cat-badge">'+p.cat+'</span></div><div class="post-body"><div class="post-meta">'+p.date+(p.date&&p.read?' · ':'')+p.read+(p.read?' read':'')+'</div><h3>'+esc(p.title)+'</h3><p>'+esc(p.excerpt)+'</p><span class="read-more">Read Article</span></div></div>';
+}
+
+function openPost(i){
+  var p=POSTS[i];
+  document.getElementById('post-hero').style.background=p.grad;
+  document.getElementById('post-cat').textContent=p.cat;
+  document.getElementById('post-title').textContent=p.title;
+  document.getElementById('post-byline').textContent='Pharmmed Editorial · '+p.date+(p.date&&p.read?' · ':'')+p.read+(p.read?' read':'');
+  document.getElementById('post-crumb').textContent=p.title.substring(0,40)+(p.title.length>40?'...':'');
+  document.getElementById('post-body').innerHTML=p.body;
+  showPage('post');
+}
+
+// ═══════════════════════════════════════════════════════════
+//  NAVIGATION & FILTER
+// ═══════════════════════════════════════════════════════════
+function showPage(page){
+  document.querySelectorAll('[id^="page-"]').forEach(function(el){ el.classList.add('page-hidden'); });
+  var t=document.getElementById('page-'+page);
+  if(t){ t.classList.remove('page-hidden'); window.scrollTo(0,0); }
+}
+function toggleMenu(){ document.getElementById('mob-menu').classList.toggle('open'); }
+function fCat(cat){ showPage('blog'); setTimeout(function(){ fCatUI(cat,null); },50); }
+function fCatUI(cat,btn){
+  document.querySelectorAll('.cat-filter').forEach(function(b){ b.classList.remove('active'); });
+  if(btn) btn.classList.add('active');
+  else document.querySelectorAll('.cat-filter').forEach(function(b){ if(b.textContent===cat) b.classList.add('active'); });
+  document.querySelectorAll('#blog-grid .post-card').forEach(function(card){
+    card.style.display=(cat==='All'||card.dataset.cat===cat)?'block':'none';
+  });
+}
+function doSubscribe(){
+  var e=document.getElementById('sub-email').value;
+  if(!e||!e.includes('@')) return;
+  document.querySelector('.sub-form').style.display='none';
+  document.getElementById('sub-ok').style.display='block';
+}
+
+// ═══════════════════════════════════════════════════════════
+//  SAVE & DOWNLOAD
+// ═══════════════════════════════════════════════════════════
+function saveAndDownload(){
+  var src=document.documentElement.outerHTML;
+  // Serialize state
+  src=src.replace(/var S = \{[\s\S]*?\};/,'var S = '+JSON.stringify(S,null,2)+';');
+  src=src.replace(/var POSTS = \[[\s\S]*?\];/,'var POSTS = '+JSON.stringify(POSTS,null,2)+';');
+  src=src.replace(/var TESTIMONIALS = \[[\s\S]*?\];/,'var TESTIMONIALS = '+JSON.stringify(TESTIMONIALS,null,2)+';');
+  src=src.replace(/var CUSTOM_SECTIONS = \[[\s\S]*?\];/,'var CUSTOM_SECTIONS = '+JSON.stringify(CUSTOM_SECTIONS,null,2)+';');
+  src=src.replace(/var isAdmin = true;/,'var isAdmin = false;');
+  // Strip admin panel open state
+  src=src.replace(/id="admin-bar" class="[^"]*show[^"]*"/,'id="admin-bar"');
+  src=src.replace(/id="edit-panel" class="[^"]*show[^"]*"/,'id="edit-panel"');
+  src=src.replace(/body class="[^"]*admin-mode[^"]*"/,'body');
+
+  var blob=new Blob(['<!DOCTYPE html>\n'+src.replace(/^<!DOCTYPE html>\n?/i,'')],{type:'text/html'});
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement('a');
+  a.href=url; a.download='index.html'; a.click();
+  URL.revokeObjectURL(url);
+  var msg=document.getElementById('save-msg');
+  msg.style.display='inline';
+  setTimeout(function(){ msg.style.display='none'; },5000);
+}
+
+// Utility
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+// Init
+renderPosts();
+renderTestiGrid();
+renderCustomSectionsDOM();
+</script>
+</body>
+</html>
